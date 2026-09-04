@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Formulario{% endblock %}   
+{% block content %}
+<h1>Nueva Tarea</h1>
+<form action="/nueva-tarea" method="POST">
+    <label class="form-label" for="nombre">Titulo de la tarea:</label>
+    <input name="title" class="form-control" type="text" id="nombre" required>
+    <br>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <br>
+</form>
+{%endblock %}
