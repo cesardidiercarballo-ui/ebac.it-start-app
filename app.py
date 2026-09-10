@@ -23,10 +23,9 @@ def nueva_tarea():
 
 @app.route("/tareas")
 def mostrar_tareas():
-    tareas = request.cookies.get('tareas', "")
-    lista_tareas = tareas.split(",") if tareas else []
-    return render_template("tareas.html", tareas=lista_tareas)
-    {   
+    # Tareas de ejemplo (informacion base)
+    tareas_base = [
+        {
             "nombre": "Hacer ejercicio",
             "estado": "pendiente",
             "prioridad": "alta",
@@ -46,10 +45,23 @@ def mostrar_tareas():
             "prioridad": "baja",
             "fecha": "2026-08-29",
             "completada": True
-         }
-    ]    
-    return render_template("tareas.html", tareas=tareas)
-    
+        }
+    ]
+
+    # Tareas agregadas desde el formulario (guardadas en la cookie)
+    tareas = request.cookies.get('tareas', "")
+    lista_tareas = tareas.split(",") if tareas else []
+    for nombre in lista_tareas:
+        tareas_base.append({
+            "nombre": nombre,
+            "estado": "pendiente",
+            "prioridad": "media",
+            "fecha": "",
+            "completada": False
+        })
+
+    return render_template("tareas.html", tareas=tareas_base)
+
 @app.route('/acerca-de')
 def acerca_de():
     return render_template("acerca-de.html")
