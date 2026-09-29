@@ -4,7 +4,6 @@ from models import Tarea
 
 app = Flask(__name__)
 
-# Nos aseguramos de que la tabla exista antes de atender peticiones
 init_db()
 
 @app.route("/tareas")
@@ -15,6 +14,11 @@ def mostrar_tareas():
 @app.route("/api/tareas", methods=["GET"])
 def api_mostrar_tareas():
     return jsonify(Tarea.get_all())
+
+@app.route("/api/tareas/<int:id>", methods=["DELETE"])
+def api_eliminar_tarea(id):
+    Tarea.delete(id)
+    return jsonify({"mensaje": "Tarea eliminada"})
 
 if __name__ == "__main__":
     app.run(debug=True)

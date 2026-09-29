@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Tareas - Modulo 7</title>
-</head>
-<body>
-    <h1>Mis tareas (desde SQLite)</h1>
-    <table border="1" cellpadding="6">
-        <tr>
-            <th>ID</th>
-            <th>Titulo</th>
-            <th>Estado</th>
-            <th>Fecha de creacion</th>
-        </tr>
-        {% for tarea in tareas %}
-        <tr>
-            <td>{{ tarea[0] }}</td>
-            <td>{{ tarea[1] }}</td>
-            <td>{{ tarea[2] }}</td>
-            <td>{{ tarea[3] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}Tareas{% endblock %}
+{% block content %}
+<h1>Tareas</h1>
+<p>Estas son las tareas que tienes que hacer:</p>
+<div class="list-group" id="lista-tareas"></div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/app.js"></script>
+{% endblock %}
