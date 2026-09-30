@@ -17,7 +17,9 @@ def api_mostrar_tareas():
 
 @app.route("/api/tareas/<int:id>", methods=["DELETE"])
 def api_eliminar_tarea(id):
-    Tarea.delete(id)
+    borradas = Tarea.delete(id)
+    if borradas == 0:
+        return jsonify({"error": "La tarea no existe"}), 404
     return jsonify({"mensaje": "Tarea eliminada"})
 
 @app.route("/formulario")
@@ -31,7 +33,7 @@ def api_crear_tarea():
     categoria = request.form.get("categoria", "").strip()
     print("Datos recibidos:", titulo, categoria)
     if titulo == "":
-        return redirect("/formulario")
+        return jsonify({"error": "Falta el campo tarea"}), 400
     if categoria == "":
         categoria = "General"
     Tarea.create(titulo, categoria)

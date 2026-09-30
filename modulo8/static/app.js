@@ -1,6 +1,16 @@
+function mostrarError(mensaje) {
+    document.getElementById("alerta").innerHTML = `
+        <div class="alert alert-danger" role="alert">
+            ${mensaje}
+        </div>`;
+}
+
 function cargarTareas() {
     fetch("/api/tareas")
         .then(function (respuesta) {
+            if (!respuesta.ok) {
+                throw new Error("Error " + respuesta.status);
+            }
             return respuesta.json();
         })
         .then(function (tareas) {
@@ -16,13 +26,22 @@ function cargarTareas() {
                         </button>
                     </div>`;
             });
+        })
+        .catch(function () {
+            mostrarError("Error: no se pudieron cargar las tareas");
         });
 }
 
 function eliminarTarea(id) {
     fetch("/api/tareas/" + id, { method: "DELETE" })
-        .then(function () {
+        .then(function (respuesta) {
+            if (!respuesta.ok) {
+                throw new Error("Error " + respuesta.status);
+            }
             cargarTareas();
+        })
+        .catch(function () {
+            mostrarError("Error: no se pudo eliminar la tarea");
         });
 }
 
