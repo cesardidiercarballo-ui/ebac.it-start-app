@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request, redirect
 from database import init_db
 from models import Tarea
 
@@ -19,6 +19,23 @@ def api_mostrar_tareas():
 def api_eliminar_tarea(id):
     Tarea.delete(id)
     return jsonify({"mensaje": "Tarea eliminada"})
+
+@app.route("/formulario")
+def formulario():
+    categorias = Tarea.get_categorias()
+    return render_template("formulario.html", categorias=categorias)
+
+@app.route("/api/tareas", methods=["POST"])
+def api_crear_tarea():
+    titulo = request.form.get("tarea", "").strip()
+    categoria = request.form.get("categoria", "").strip()
+    print("Datos recibidos:", titulo, categoria)
+    if titulo == "":
+        return redirect("/formulario")
+    if categoria == "":
+        categoria = "General"
+    Tarea.create(titulo, categoria)
+    return redirect("/tareas")
 
 if __name__ == "__main__":
     app.run(debug=True)

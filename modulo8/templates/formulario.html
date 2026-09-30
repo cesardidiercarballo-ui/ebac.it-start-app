@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Nueva tarea{% endblock %}
+{% block content %}
+<h1>Nueva tarea</h1>
+<form action="/api/tareas" method="post">
+    <label class="form-label" for="tarea">Nombre de la tarea</label>
+    <input type="text" class="form-control" id="tarea" name="tarea" required>
+    <label class="form-label mt-3" for="categoria">Categoría</label>
+    <select class="form-select" id="categoria" name="categoria" required>
+        <option value="" disabled selected>Selecciona una categoría</option>
+        {% for c in categorias %}
+        <option value="{{ c }}">{{ c }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary mt-3">Agregar tarea</button>
+</form>
+
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+<script>
+    new TomSelect("#categoria", {
+        create: true,
+        placeholder: "Selecciona o crea una categoría"
+    });
+</script>
+{% endblock %}

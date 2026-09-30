@@ -4,9 +4,9 @@ class Tarea:
     """Modelo de la tabla tareas: aqui viven las operaciones CRUD."""
 
     @staticmethod
-    def create(titulo):
+    def create(titulo, categoria="General"):
         conn = connect_db()
-        cursor = conn.execute("INSERT INTO tareas (titulo) VALUES (?)", (titulo,))
+        cursor = conn.execute("INSERT INTO tareas (titulo, categoria) VALUES (?, ?)", (titulo, categoria))
         conn.commit()
         conn.close()
         return cursor.lastrowid
@@ -25,6 +25,16 @@ class Tarea:
         conn.commit()
         conn.close()
         return cursor.rowcount
+
+    @staticmethod
+    def get_categorias():
+        conn = connect_db()
+        filas = conn.execute("SELECT DISTINCT categoria FROM tareas ORDER BY categoria").fetchall()
+        conn.close()
+        categorias = []
+        for fila in filas:
+            categorias.append(fila[0])
+        return categorias
     
 if __name__ == "__main__":
     nuevo_id = Tarea.create("Tarea creada desde el modelo")

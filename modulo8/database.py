@@ -18,6 +18,10 @@ def init_db():
             fecha_creacion TEXT NOT NULL DEFAULT (datetime('now','localtime'))
         )
     """)
+    try:
+        conn.execute("ALTER TABLE tareas ADD COLUMN categoria TEXT NOT NULL DEFAULT 'General'")
+    except sqlite3.OperationalError:
+        pass
     conn.commit()
     print(" * Tabla tareas creada")
     return conn
