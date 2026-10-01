@@ -15,6 +15,13 @@ def mostrar_tareas():
 def api_mostrar_tareas():
     return jsonify(Tarea.get_all())
 
+@app.route("/api/tareas/<int:id>", methods=["GET"])
+def api_obtener_tarea(id):
+    tarea = Tarea.get_by_id(id)
+    if tarea is None:
+        return jsonify({"error": "La tarea no existe"}), 404
+    return jsonify(tarea)
+
 @app.route("/api/tareas/<int:id>", methods=["DELETE"])
 def api_eliminar_tarea(id):
     borradas = Tarea.delete(id)

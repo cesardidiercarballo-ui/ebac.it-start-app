@@ -19,6 +19,13 @@ class Tarea:
         return filas
 
     @staticmethod
+    def get_by_id(tarea_id):
+        conn = connect_db()
+        fila = conn.execute("SELECT * FROM tareas WHERE id = ?", (tarea_id,)).fetchone()
+        conn.close()
+        return fila
+
+    @staticmethod
     def delete(tarea_id):
         conn = connect_db()
         cursor = conn.execute("DELETE FROM tareas WHERE id = ?", (tarea_id,))
