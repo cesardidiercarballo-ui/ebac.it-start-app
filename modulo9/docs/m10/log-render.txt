@@ -1,0 +1,99 @@
+==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+==> Your service is live 🎉
+==>
+==> ///////////////////////////////////////////////////////////
+==>
+==> Available at your primary URL https://ebac-it-start-app-ntgn.onrender.com
+==>
+==> ///////////////////////////////////////////////////////////
+127.0.0.1 - - [02/Oct/2026:01:15:37 +0000] "GET /api/tareas HTTP/1.1" 200 2464 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:15:38 +0000] "GET /favicon.ico HTTP/1.1" 404 207 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:05 +0000] "GET /tareas HTTP/1.1" 200 1226 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:05 +0000] "GET /static/app.js HTTP/1.1" 304 0 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:05 +0000] "GET /api/tareas HTTP/1.1" 200 2464 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:18 +0000] "GET /tareas HTTP/1.1" 200 1226 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:19 +0000] "GET /static/app.js HTTP/1.1" 304 0 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:19 +0000] "GET /api/tareas HTTP/1.1" 200 2464 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:20 +0000] "GET /formulario HTTP/1.1" 200 3375 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:27 +0000] "GET /tareas HTTP/1.1" 200 1226 "https://ebac-it-start-app-ntgn.onrender.com/formulario" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:27 +0000] "GET /static/app.js HTTP/1.1" 304 0 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:17:27 +0000] "GET /api/tareas HTTP/1.1" 200 2464 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+==> Detected service running on port 10000
+==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+==> Deploying...
+==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+==> Running 'gunicorn app:app'
+[2026-10-02 01:27:22 +0000] [60] [INFO] Starting gunicorn 26.2.0
+[2026-10-02 01:27:22 +0000] [60] [INFO] Listening at: http://0.0.0.0:10000 (60)
+[2026-10-02 01:27:22 +0000] [60] [INFO] Using worker: sync
+[2026-10-02 01:27:22 +0000] [62] [INFO] Booting worker with pid: 62
+[2026-10-02 01:27:23 +0000] [60] [INFO] Control socket listening at /opt/render/.gunicorn/gunicorn.ctl
+127.0.0.1 - - [02/Oct/2026:01:27:23 +0000] "HEAD / HTTP/1.1" 302 0 "-" "Go-http-client/1.1"
+[2026-10-02 01:27:30 +0000] [60] [INFO] Handling signal: term
+[2026-10-02 01:27:30 +0000] [62] [INFO] Worker exiting (pid: 62)
+==> Your service is live 🎉
+127.0.0.1 - - [02/Oct/2026:01:27:30 +0000] "GET / HTTP/1.1" 302 201 "-" "Go-http-client/2.0"
+127.0.0.1 - - [02/Oct/2026:01:27:30 +0000] "GET /tareas HTTP/1.1" 200 1226 "https://ebac-it-start-app-ntgn.onrender.com" "Go-http-client/2.0"
+==>
+==> ///////////////////////////////////////////////////////////
+==>
+==> Available at your primary URL https://ebac-it-start-app-ntgn.onrender.com
+==>
+==> ///////////////////////////////////////////////////////////
+[2026-10-02 01:27:30 +0000] [60] [INFO] Shutting down: Master
+==> Deploying...
+==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+==> Running 'gunicorn app:app'
+[2026-10-02 01:31:26 +0000] [62] [INFO] Starting gunicorn 26.2.0
+[2026-10-02 01:31:26 +0000] [62] [INFO] Listening at: http://0.0.0.0:10000 (62)
+[2026-10-02 01:31:26 +0000] [62] [INFO] Using worker: sync
+[2026-10-02 01:31:26 +0000] [63] [INFO] Booting worker with pid: 63
+[2026-10-02 01:31:27 +0000] [62] [INFO] Control socket listening at /opt/render/.gunicorn/gunicorn.ctl
+127.0.0.1 - - [02/Oct/2026:01:31:27 +0000] "HEAD / HTTP/1.1" 302 0 "-" "Go-http-client/1.1"
+[2026-10-02 01:31:30 +0000] [60] [INFO] Handling signal: term
+[2026-10-02 01:31:30 +0000] [62] [INFO] Worker exiting (pid: 62)
+==> ///////////////////////////////////////////////////////////
+==>
+==> Available at your primary URL https://ebac-it-start-app-ntgn.onrender.com
+==>
+==> ///////////////////////////////////////////////////////////
+127.0.0.1 - - [02/Oct/2026:01:31:31 +0000] "GET / HTTP/1.1" 302 201 "-" "Go-http-client/2.0"
+127.0.0.1 - - [02/Oct/2026:01:31:31 +0000] "GET /tareas HTTP/1.1" 200 1226 "https://ebac-it-start-app-ntgn.onrender.com" "Go-http-client/2.0"
+[2026-10-02 01:31:31 +0000] [60] [INFO] Shutting down: Master
+127.0.0.1 - - [02/Oct/2026:01:32:14 +0000] "GET /api/protegido HTTP/1.1" 401 26 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+==> Detected service running on port 10000
+==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+[2026-10-02 01:47:14 +0000] [62] [INFO] Handling signal: term
+[2026-10-02 01:47:14 +0000] [63] [INFO] Worker exiting (pid: 63)
+[2026-10-02 01:47:14 +0000] [62] [INFO] Shutting down: Master
+==> Deploying...
+==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+==> Running 'gunicorn app:app'
+[2026-10-02 01:48:40 +0000] [61] [INFO] Starting gunicorn 26.2.0
+[2026-10-02 01:48:40 +0000] [61] [INFO] Listening at: http://0.0.0.0:10000 (61)
+[2026-10-02 01:48:40 +0000] [61] [INFO] Using worker: sync
+[2026-10-02 01:48:40 +0000] [62] [INFO] Booting worker with pid: 62
+127.0.0.1 - - [02/Oct/2026:01:48:40 +0000] "HEAD / HTTP/1.1" 302 0 "-" "Go-http-client/1.1"
+[2026-10-02 01:48:41 +0000] [61] [INFO] Control socket listening at /opt/render/.gunicorn/gunicorn.ctl
+==> Your service is live 🎉
+127.0.0.1 - - [02/Oct/2026:01:48:47 +0000] "GET / HTTP/1.1" 302 201 "-" "Go-http-client/2.0"
+==>
+==> ///////////////////////////////////////////////////////////
+==>
+==> Available at your primary URL https://ebac-it-start-app-ntgn.onrender.com
+==>
+==> ///////////////////////////////////////////////////////////
+127.0.0.1 - - [02/Oct/2026:01:48:47 +0000] "GET /tareas HTTP/1.1" 200 1226 "https://ebac-it-start-app-ntgn.onrender.com" "Go-http-client/2.0"
+==> Detected service running on port 10000
+==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+127.0.0.1 - - [02/Oct/2026:01:53:46 +0000] "GET / HTTP/1.1" 302 201 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:53:46 +0000] "GET /tareas HTTP/1.1" 200 1226 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:53:47 +0000] "GET /static/app.js HTTP/1.1" 200 0 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:53:47 +0000] "GET /api/tareas HTTP/1.1" 200 2464 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:54:00 +0000] "GET /tareas HTTP/1.1" 200 1226 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:54:00 +0000] "GET /static/app.js HTTP/1.1" 304 0 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:54:00 +0000] "GET /api/tareas HTTP/1.1" 200 2464 "https://ebac-it-start-app-ntgn.onrender.com/tareas" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:54:14 +0000] "GET /formulario HTTP/1.1" 200 3375 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:54:27 +0000] "GET /api/tareas HTTP/1.1" 200 2464 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:54:44 +0000] "GET /api/tareas/9999 HTTP/1.1" 404 31 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+127.0.0.1 - - [02/Oct/2026:01:54:53 +0000] "GET /api/protegido HTTP/1.1" 401 26 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
