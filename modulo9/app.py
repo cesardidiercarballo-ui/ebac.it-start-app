@@ -6,6 +6,7 @@ from database import init_db
 from models import PRIORIDADES, Tarea
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "clave-local")
 app.json.ensure_ascii = False
 app.json.sort_keys = False
 
@@ -67,6 +68,14 @@ def api_eliminar_tarea(id):
     if Tarea.delete(id) == 0:
         return jsonify({"error": "La tarea no existe"}), 404
     return jsonify({"mensaje": "Tarea eliminada"})
+
+
+@app.route("/api/protegido")
+def api_protegido():
+    clave = request.headers.get("X-Clave")
+    if not clave or clave != app.config["SECRET_KEY"]:
+        return jsonify({"error": "No autorizado"}), 401
+    return jsonify({"mensaje": "Acceso concedido"})
 
 
 if __name__ == "__main__":
