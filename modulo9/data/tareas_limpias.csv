@@ -1,0 +1,11 @@
+id,titulo,estado,fecha_creacion,categoria,fecha_limite,prioridad,tiempo_estimado,completado_en,duracion_real_min,duracion_real_h,diferencia_min,is_delayed,horas_de_retraso,es_atipica
+1,Estudiar SQLite,completada,2026-09-09 23:06:31,General,,media,,,,,,False,,False
+4,practicar formularios,pendiente,2026-09-29 18:51:15,Estudio,,media,,,,,,False,,False
+5,Lavar ropa,completada,2026-09-01 09:00:00,Hogar,2026-09-02 20:00:00,media,60.0,2026-09-01 10:20:00,80.0,1.3333333333333333,20.0,False,,False
+6,Hacer el súper,completada,2026-09-03 10:00:00,Compras,2026-09-04 20:00:00,alta,90.0,2026-09-03 11:45:00,105.0,1.75,15.0,False,,False
+7,Pagar la luz,completada,2026-09-05 08:00:00,Personal,2026-09-08 18:00:00,alta,15.0,2026-09-10 09:00:00,7260.0,121.0,7245.0,True,39.0,True
+8,Hacer la comida,completada,2026-09-08 12:00:00,Hogar,2026-09-08 15:00:00,media,45.0,2026-09-08 13:00:00,60.0,1.0,15.0,False,,False
+9,Salir a correr,completada,2026-09-12 07:00:00,Ejercicio,,baja,40.0,2026-09-12 07:50:00,50.0,0.8333333333333334,10.0,False,,False
+10,Limpiar la cocina,completada,2026-09-15 18:00:00,Hogar,2026-09-16 20:00:00,baja,,,,,,False,,False
+11,Ir al banco,pendiente,2026-09-20 10:00:00,Personal,2026-09-25 14:00:00,media,,,,,,True,,False
+12,Pasear al perro,pendiente,2026-09-28 19:00:00,Mascotas,2026-10-10 20:00:00,baja,30.0,,,,,False,,False

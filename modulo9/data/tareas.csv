@@ -1,0 +1,11 @@
+id,titulo,estado,fecha_creacion,categoria,fecha_limite,prioridad,tiempo_estimado,completado_en
+1,Estudiar SQLite,completada,2026-09-09 23:06:31,General,,media,,
+4,practicar formularios,pendiente,2026-09-29 18:51:15,Estudio,,media,,
+5,  Lavar ropa  ,completada,2026-09-01 09:00:00,Hogar,2026-09-02 20:00:00,media,60,2026-09-01 10:20:00
+6,Hacer el súper,completada,2026-09-03 10:00:00,compras,2026-09-04 20:00:00,Alta,90,2026-09-03 11:45:00
+7,Pagar la luz,completada,2026-09-05 08:00:00,Personal,2026-09-08 18:00:00,alta,15,2026-09-10 09:00:00
+8,Hacer la comida,completada,2026-09-08 12:00:00,Hogar,2026-09-08 15:00:00,urgente,45,2026-09-08 13:00:00
+9,Salir a correr,completada,2026-09-12 07:00:00,Ejercicio,pronto,baja,40,2026-09-12 07:50:00
+10,Limpiar la cocina,completada,2026-09-15 18:00:00,HOGAR ,2026-09-16 20:00:00, BAJA,-30,2026-09-14 18:00:00
+11,Ir al banco,pendiente,2026-09-20 10:00:00,Personal,2026-09-25 14:00:00,media,,
+12,Pasear al perro,pendiente,2026-09-28 19:00:00,Mascotas,2026-10-10 20:00:00,baja,30,

@@ -1,0 +1,112 @@
+[
+  {
+    "id":1,
+    "titulo":"Estudiar SQLite",
+    "estado":"completada",
+    "fecha_creacion":"2026-09-09 23:06:31",
+    "categoria":"General",
+    "fecha_limite":null,
+    "prioridad":"media",
+    "tiempo_estimado":null,
+    "completado_en":null
+  },
+  {
+    "id":4,
+    "titulo":"practicar formularios",
+    "estado":"pendiente",
+    "fecha_creacion":"2026-09-29 18:51:15",
+    "categoria":"Estudio",
+    "fecha_limite":null,
+    "prioridad":"media",
+    "tiempo_estimado":null,
+    "completado_en":null
+  },
+  {
+    "id":5,
+    "titulo":"  Lavar ropa  ",
+    "estado":"completada",
+    "fecha_creacion":"2026-09-01 09:00:00",
+    "categoria":"Hogar",
+    "fecha_limite":"2026-09-02 20:00:00",
+    "prioridad":"media",
+    "tiempo_estimado":60,
+    "completado_en":"2026-09-01 10:20:00"
+  },
+  {
+    "id":6,
+    "titulo":"Hacer el súper",
+    "estado":"completada",
+    "fecha_creacion":"2026-09-03 10:00:00",
+    "categoria":"compras",
+    "fecha_limite":"2026-09-04 20:00:00",
+    "prioridad":"Alta",
+    "tiempo_estimado":90,
+    "completado_en":"2026-09-03 11:45:00"
+  },
+  {
+    "id":7,
+    "titulo":"Pagar la luz",
+    "estado":"completada",
+    "fecha_creacion":"2026-09-05 08:00:00",
+    "categoria":"Personal",
+    "fecha_limite":"2026-09-08 18:00:00",
+    "prioridad":"alta",
+    "tiempo_estimado":15,
+    "completado_en":"2026-09-10 09:00:00"
+  },
+  {
+    "id":8,
+    "titulo":"Hacer la comida",
+    "estado":"completada",
+    "fecha_creacion":"2026-09-08 12:00:00",
+    "categoria":"Hogar",
+    "fecha_limite":"2026-09-08 15:00:00",
+    "prioridad":"urgente",
+    "tiempo_estimado":45,
+    "completado_en":"2026-09-08 13:00:00"
+  },
+  {
+    "id":9,
+    "titulo":"Salir a correr",
+    "estado":"completada",
+    "fecha_creacion":"2026-09-12 07:00:00",
+    "categoria":"Ejercicio",
+    "fecha_limite":"pronto",
+    "prioridad":"baja",
+    "tiempo_estimado":40,
+    "completado_en":"2026-09-12 07:50:00"
+  },
+  {
+    "id":10,
+    "titulo":"Limpiar la cocina",
+    "estado":"completada",
+    "fecha_creacion":"2026-09-15 18:00:00",
+    "categoria":"HOGAR ",
+    "fecha_limite":"2026-09-16 20:00:00",
+    "prioridad":" BAJA",
+    "tiempo_estimado":-30,
+    "completado_en":"2026-09-14 18:00:00"
+  },
+  {
+    "id":11,
+    "titulo":"Ir al banco",
+    "estado":"pendiente",
+    "fecha_creacion":"2026-09-20 10:00:00",
+    "categoria":"Personal",
+    "fecha_limite":"2026-09-25 14:00:00",
+    "prioridad":"media",
+    "tiempo_estimado":null,
+    "completado_en":null
+  },
+  {
+    "id":12,
+    "titulo":"Pasear al perro",
+    "estado":"pendiente",
+    "fecha_creacion":"2026-09-28 19:00:00",
+    "categoria":"Mascotas",
+    "fecha_limite":"2026-10-10 20:00:00",
+    "prioridad":"baja",
+    "tiempo_estimado":30,
+    "completado_en":null
+  }
+]
