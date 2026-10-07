@@ -21,7 +21,7 @@ class Tarea:
         if titulo == "":
             raise ValueError("Falta el campo tarea")
 
-        categoria = (categoria or "").strip() or "General"
+        categoria = (categoria or "").strip().capitalize() or "General"
 
         prioridad = (prioridad or "media").strip().lower()
         if prioridad not in PRIORIDADES:
