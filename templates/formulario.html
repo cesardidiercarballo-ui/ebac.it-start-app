@@ -1,12 +1,47 @@
 {% extends "layout.html" %}
-{% block title %}Formulario{% endblock %}   
+{% block title %}Nueva tarea{% endblock %}
 {% block content %}
-<h1>Nueva Tarea</h1>
-<form action="/nueva-tarea" method="POST">
-    <label class="form-label" for="nombre">Titulo de la tarea:</label>
-    <input name="title" class="form-control" type="text" id="nombre" required>
-    <br>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <br>
+<h1>Nueva tarea</h1>
+<form action="/api/tareas" method="post">
+    <label class="form-label" for="tarea">Nombre de la tarea</label>
+    <input type="text" class="form-control" id="tarea" name="tarea" required>
+
+    <label class="form-label mt-3" for="categoria">Categoría</label>
+    <select class="form-select" id="categoria" name="categoria" required>
+        <option value="" disabled selected>Selecciona una categoría</option>
+        {% for c in categorias %}
+        <option value="{{ c }}">{{ c }}</option>
+        {% endfor %}
+    </select>
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label class="form-label" for="prioridad">Prioridad</label>
+            <select class="form-select" id="prioridad" name="prioridad">
+                {% for p in prioridades %}
+                <option value="{{ p }}" {% if p == "media" %}selected{% endif %}>{{ p | capitalize }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label" for="fecha_limite">Fecha límite</label>
+            <input type="datetime-local" class="form-control" id="fecha_limite" name="fecha_limite">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label" for="tiempo_estimado">Tiempo estimado (minutos)</label>
+            <input type="number" class="form-control" id="tiempo_estimado" name="tiempo_estimado" min="0" step="1">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Agregar tarea</button>
 </form>
-{%endblock %}
+
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+<script>
+    new TomSelect("#categoria", {
+        create: true,
+        placeholder: "Selecciona o crea una categoría"
+    });
+</script>
+{% endblock %}

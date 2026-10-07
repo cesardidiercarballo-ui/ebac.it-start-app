@@ -2,17 +2,10 @@
 {% block title %}Tareas{% endblock %}
 {% block content %}
 <h1>Tareas</h1>
-<p>estas son las tareas pendientes:</p>
-<ul>
-    {% for tarea in tareas %}
-{% if tarea.completada == False %}
-<li>
-    <h2>{{ tarea.nombre}}</h2>
-    <p>Estado: {{ tarea.estado }}</p>
-    <p>Prioridad: {{ tarea.prioridad }}</p>
-    <p>Fecha: {{ tarea.fecha }}</p>
-</li>
-{% endif %}
-{% endfor %}
-</ul>
+<p>Estas son las tareas que tienes que hacer:</p>
+<div id="alerta"></div>
+<div class="list-group" id="lista-tareas"></div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/app.js"></script>
 {% endblock %}
