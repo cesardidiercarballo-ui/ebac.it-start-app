@@ -31,7 +31,7 @@ function cargarTareas() {
                         <i class="bi bi-check2 me-1"></i>Completar
                     </button>`;
                 lista.innerHTML += `
-                    <div class="list-group-item d-flex justify-content-between align-items-center ${color}">
+                    <div class="list-group-item d-flex flex-wrap justify-content-between align-items-center gap-2 ${color}">
                         <div>
                             <span class="fw-semibold">${tarea.titulo}</span>
                             <span class="badge text-bg-secondary ms-2">${tarea.categoria}</span>
