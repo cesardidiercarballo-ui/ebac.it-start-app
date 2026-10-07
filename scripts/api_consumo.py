@@ -1,5 +1,13 @@
-import pandas as pd
-import requests
+import subprocess
+import sys
+
+try:
+    import pandas as pd
+    import requests
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas", "requests"])
+    import pandas as pd
+    import requests
 
 URL_API = "http://127.0.0.1:5000/api/tareas"
 
