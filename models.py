@@ -67,7 +67,10 @@ class Tarea:
         conn = connect_db()
         filas = conn.execute(f"SELECT {COLUMNAS} FROM tareas ORDER BY id").fetchall()
         conn.close()
-        return [Tarea.to_dict(fila) for fila in filas]
+        resultado = []
+        for fila in filas:
+            resultado.append(Tarea.to_dict(fila))
+        return resultado
 
     @staticmethod
     def get_by_id(tarea_id):
