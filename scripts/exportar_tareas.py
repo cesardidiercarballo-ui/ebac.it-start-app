@@ -1,7 +1,13 @@
 import os
 import sqlite3
+import subprocess
+import sys
 
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas"])
+    import pandas as pd
 
 CARPETA_MODULO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RUTA_DB = os.path.join(CARPETA_MODULO, "todolist.db")
