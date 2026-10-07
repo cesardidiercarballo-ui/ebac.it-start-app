@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block title %}Estadísticas{% endblock %}
+{% block content %}
+<h1>Estadísticas</h1>
+<p>Resumen calculado con las tareas guardadas en la base de datos.</p>
+
+<div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+        <div class="card text-center p-3"><div class="fs-3 fw-bold">{{ datos.total }}</div><div class="text-muted small">Total</div></div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="card text-center p-3"><div class="fs-3 fw-bold">{{ datos.pendientes }}</div><div class="text-muted small">Pendientes</div></div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="card text-center p-3"><div class="fs-3 fw-bold">{{ datos.completadas }}</div><div class="text-muted small">Completadas</div></div>
+    </div>
+</div>
+
+<h2 class="h5">Pendientes vs completadas</h2>
+{% set pct_completadas = (datos.completadas * 100 // datos.total) if datos.total else 0 %}
+<div class="progress mb-4" role="progressbar" aria-valuenow="{{ pct_completadas }}" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar bg-success" style="width: {{ pct_completadas }}%">{{ pct_completadas }}% completadas</div>
+</div>
+
+<h2 class="h5">Tareas por categoría</h2>
+{% for item in datos.por_categoria %}
+    {% set pct = (item.cantidad * 100 // datos.total) if datos.total else 0 %}
+    <div class="mb-2">
+        <div class="d-flex justify-content-between small"><span>{{ item.categoria }}</span><span>{{ item.cantidad }}</span></div>
+        <div class="progress" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: {{ pct }}%"></div>
+        </div>
+    </div>
+{% else %}
+    <p class="text-muted">Sin datos.</p>
+{% endfor %}
+
+<h2 class="h5 mt-4">Tareas por prioridad</h2>
+{% for item in datos.por_prioridad %}
+    {% set pct = (item.cantidad * 100 // datos.total) if datos.total else 0 %}
+    <div class="mb-2">
+        <div class="d-flex justify-content-between small"><span>{{ item.prioridad }}</span><span>{{ item.cantidad }}</span></div>
+        <div class="progress" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-info" style="width: {{ pct }}%"></div>
+        </div>
+    </div>
+{% else %}
+    <p class="text-muted">Sin datos.</p>
+{% endfor %}
+{% endblock %}

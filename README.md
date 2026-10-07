@@ -72,10 +72,12 @@ Tabla `tareas` en SQLite:
 | GET | `/tareas/<id>/editar` | Formulario para editar una tarea. |
 | GET | `/api/tareas` | Lista de tareas en JSON. |
 | GET | `/api/tareas/<id>` | Una tarea en JSON. |
-| POST | `/api/tareas` | Crea una tarea. |
-| POST | `/api/tareas/<id>/editar` | Actualiza los datos de una tarea. |
+| POST | `/api/tareas` | Crea una tarea. Con `Accept: application/json` responde con la tarea creada en JSON. |
+| POST | `/api/tareas/<id>/editar` | Actualiza los datos de una tarea. Con `Accept: application/json` responde con la tarea actualizada en JSON. |
 | PATCH | `/api/tareas/<id>/completar` | Marca una tarea como completada. |
 | DELETE | `/api/tareas/<id>` | Elimina una tarea. |
+| GET | `/estadisticas` | Página con resumen de tareas: pendientes vs completadas, por categoría y por prioridad. |
+| GET | `/api/estadisticas` | Resumen de tareas en JSON. |
 | GET | `/api/protegido` | Requiere el encabezado `X-Clave` con el valor de `SECRET_KEY`. |
 
 Códigos de respuesta: 200 o 302 cuando la operación es correcta, 400 cuando los datos no son válidos, 401 cuando falta la clave en `/api/protegido` y 404 cuando la tarea no existe.

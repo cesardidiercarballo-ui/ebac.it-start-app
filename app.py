@@ -13,6 +13,10 @@ app.json.sort_keys = False
 init_db()
 
 
+def pide_json():
+    return "application/json" in request.headers.get("Accept", "")
+
+
 @app.route("/")
 def inicio():
     return redirect("/tareas")
@@ -21,6 +25,16 @@ def inicio():
 @app.route("/tareas")
 def mostrar_tareas():
     return render_template("tareas.html")
+
+
+@app.route("/estadisticas")
+def estadisticas():
+    return render_template("estadisticas.html", datos=Tarea.get_estadisticas())
+
+
+@app.route("/api/estadisticas", methods=["GET"])
+def api_estadisticas():
+    return jsonify(Tarea.get_estadisticas())
 
 
 @app.route("/formulario")
@@ -44,7 +58,7 @@ def api_obtener_tarea(id):
 @app.route("/api/tareas", methods=["POST"])
 def api_crear_tarea():
     try:
-        Tarea.create(
+        nuevo_id = Tarea.create(
             titulo=request.form.get("tarea"),
             categoria=request.form.get("categoria"),
             prioridad=request.form.get("prioridad"),
@@ -53,6 +67,8 @@ def api_crear_tarea():
         )
     except ValueError as error:
         return jsonify({"error": str(error)}), 400
+    if pide_json():
+        return jsonify(Tarea.get_by_id(nuevo_id)), 201
     return redirect("/tareas")
 
 
@@ -79,6 +95,8 @@ def api_editar_tarea(id):
         return jsonify({"error": str(error)}), 400
     if filas == 0:
         return jsonify({"error": "La tarea no existe"}), 404
+    if pide_json():
+        return jsonify(Tarea.get_by_id(id))
     return redirect("/tareas")
 
 

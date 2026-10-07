@@ -120,3 +120,23 @@ class Tarea:
         filas = conn.execute("SELECT DISTINCT categoria FROM tareas ORDER BY categoria").fetchall()
         conn.close()
         return [fila["categoria"] for fila in filas]
+
+    @staticmethod
+    def get_estadisticas():
+        conn = connect_db()
+        total = conn.execute("SELECT COUNT(*) FROM tareas").fetchone()[0]
+        completadas = conn.execute("SELECT COUNT(*) FROM tareas WHERE estado = 'completada'").fetchone()[0]
+        por_categoria = conn.execute(
+            "SELECT categoria, COUNT(*) AS cantidad FROM tareas GROUP BY categoria ORDER BY cantidad DESC"
+        ).fetchall()
+        por_prioridad = conn.execute(
+            "SELECT prioridad, COUNT(*) AS cantidad FROM tareas GROUP BY prioridad ORDER BY cantidad DESC"
+        ).fetchall()
+        conn.close()
+        return {
+            "total": total,
+            "completadas": completadas,
+            "pendientes": total - completadas,
+            "por_categoria": [Tarea.to_dict(fila) for fila in por_categoria],
+            "por_prioridad": [Tarea.to_dict(fila) for fila in por_prioridad],
+        }
