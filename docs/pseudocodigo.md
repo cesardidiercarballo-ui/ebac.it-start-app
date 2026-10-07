@@ -64,6 +64,29 @@ INICIO
 FIN
 ```
 
+## Actualizar tarea (editar)
+
+```
+INICIO
+  RECIBIR el id de la tarea
+  BUSCAR la tarea con ese id
+  SI la tarea no existe ENTONCES
+    RESPONDER error 404 "La tarea no existe"
+  FIN SI
+  MOSTRAR el formulario con los datos actuales de la tarea
+  LEER titulo, categoria, prioridad, fecha_limite y tiempo_estimado desde el formulario
+  VALIDAR los datos con las mismas reglas de "Agregar tarea"
+  SI los datos no son válidos ENTONCES
+    RESPONDER error 400 con el mensaje de validación
+  FIN SI
+  ACTUALIZAR la tarea con los nuevos datos
+  SI no se actualizó ninguna tarea ENTONCES
+    RESPONDER error 404 "La tarea no existe"
+  FIN SI
+  REDIRIGIR a /tareas
+FIN
+```
+
 ## Actualizar tarea (completar)
 
 ```

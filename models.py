@@ -90,6 +90,20 @@ class Tarea:
         return cursor.rowcount
 
     @staticmethod
+    def actualizar(tarea_id, titulo, categoria, prioridad, fecha_limite, tiempo_estimado):
+        datos = Tarea.validate(titulo, categoria, prioridad, fecha_limite, tiempo_estimado)
+        conn = connect_db()
+        cursor = conn.execute(
+            """UPDATE tareas
+               SET titulo = ?, categoria = ?, prioridad = ?, fecha_limite = ?, tiempo_estimado = ?
+               WHERE id = ?""",
+            (*datos, tarea_id),
+        )
+        conn.commit()
+        conn.close()
+        return cursor.rowcount
+
+    @staticmethod
     def delete(tarea_id):
         conn = connect_db()
         cursor = conn.execute("DELETE FROM tareas WHERE id = ?", (tarea_id,))

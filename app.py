@@ -56,6 +56,32 @@ def api_crear_tarea():
     return redirect("/tareas")
 
 
+@app.route("/tareas/<int:id>/editar")
+def editar_tarea(id):
+    tarea = Tarea.get_by_id(id)
+    if tarea is None:
+        return jsonify({"error": "La tarea no existe"}), 404
+    return render_template("formulario.html", categorias=Tarea.get_categorias(), prioridades=PRIORIDADES, tarea=tarea)
+
+
+@app.route("/api/tareas/<int:id>/editar", methods=["POST"])
+def api_editar_tarea(id):
+    try:
+        filas = Tarea.actualizar(
+            id,
+            titulo=request.form.get("tarea"),
+            categoria=request.form.get("categoria"),
+            prioridad=request.form.get("prioridad"),
+            fecha_limite=request.form.get("fecha_limite"),
+            tiempo_estimado=request.form.get("tiempo_estimado"),
+        )
+    except ValueError as error:
+        return jsonify({"error": str(error)}), 400
+    if filas == 0:
+        return jsonify({"error": "La tarea no existe"}), 404
+    return redirect("/tareas")
+
+
 @app.route("/api/tareas/<int:id>/completar", methods=["PATCH"])
 def api_completar_tarea(id):
     if Tarea.completar(id) == 0:

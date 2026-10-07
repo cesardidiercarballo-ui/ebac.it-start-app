@@ -37,7 +37,24 @@ flowchart TD
     L -- No --> M([Lista terminada])
 ```
 
-## 3. Actualizar tarea (completar)
+## 3. Actualizar tarea (editar)
+
+```mermaid
+flowchart TD
+    A([Usuario pulsa Editar]) --> B[Abre /tareas/id/editar]
+    B --> C{¿Existe la tarea?}
+    C -- No --> D([Muestra mensaje de error 404])
+    C -- Sí --> E[Muestra el formulario con los datos actuales]
+    E --> F[Usuario modifica los datos y envía POST /api/tareas/id/editar]
+    F --> G{¿Los datos son válidos?}
+    G -- No --> H([Responde error 400])
+    G -- Sí --> I{¿Se actualizó una fila?}
+    I -- No --> D
+    I -- Sí --> J[Guarda los nuevos datos]
+    J --> K([Redirige a la lista Tareas])
+```
+
+## 4. Actualizar tarea (completar)
 
 ```mermaid
 flowchart TD
@@ -50,7 +67,7 @@ flowchart TD
     G --> H([app.js vuelve a cargar la lista])
 ```
 
-## 4. Eliminar tarea
+## 5. Eliminar tarea
 
 ```mermaid
 flowchart TD

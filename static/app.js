@@ -43,6 +43,9 @@ function cargarTareas() {
                         </div>
                         <div class="text-nowrap">
                             ${botonCompletar}
+                            <a href="/tareas/${tarea.id}/editar" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="bi bi-pencil me-1"></i>Editar
+                            </a>
                             <button class="btn btn-sm btn-outline-danger" onclick="eliminarTarea(${tarea.id})">
                                 <i class="bi bi-trash me-1"></i>Eliminar
                             </button>

@@ -1,16 +1,18 @@
 {% extends "layout.html" %}
-{% block title %}Nueva tarea{% endblock %}
+{% block title %}{% if tarea %}Editar tarea{% else %}Nueva tarea{% endif %}{% endblock %}
 {% block content %}
-<h1>Nueva tarea</h1>
-<form action="/api/tareas" method="post">
+<h1>{% if tarea %}Editar tarea{% else %}Nueva tarea{% endif %}</h1>
+<form action="{% if tarea %}/api/tareas/{{ tarea.id }}/editar{% else %}/api/tareas{% endif %}" method="post">
     <label class="form-label" for="tarea">Nombre de la tarea</label>
-    <input type="text" class="form-control" id="tarea" name="tarea" required>
+    <input type="text" class="form-control" id="tarea" name="tarea" value="{{ tarea.titulo if tarea else '' }}" required>
 
     <label class="form-label mt-3" for="categoria">Categoría</label>
     <select class="form-select" id="categoria" name="categoria" required>
+        {% if not tarea %}
         <option value="" disabled selected>Selecciona una categoría</option>
+        {% endif %}
         {% for c in categorias %}
-        <option value="{{ c }}">{{ c }}</option>
+        <option value="{{ c }}" {% if tarea and tarea.categoria == c %}selected{% endif %}>{{ c }}</option>
         {% endfor %}
     </select>
 
@@ -19,21 +21,21 @@
             <label class="form-label" for="prioridad">Prioridad</label>
             <select class="form-select" id="prioridad" name="prioridad">
                 {% for p in prioridades %}
-                <option value="{{ p }}" {% if p == "media" %}selected{% endif %}>{{ p | capitalize }}</option>
+                <option value="{{ p }}" {% if (tarea and tarea.prioridad == p) or (not tarea and p == "media") %}selected{% endif %}>{{ p | capitalize }}</option>
                 {% endfor %}
             </select>
         </div>
         <div class="col-md-4">
             <label class="form-label" for="fecha_limite">Fecha límite</label>
-            <input type="datetime-local" class="form-control" id="fecha_limite" name="fecha_limite">
+            <input type="datetime-local" class="form-control" id="fecha_limite" name="fecha_limite" value="{{ tarea.fecha_limite[:16] | replace(' ', 'T') if tarea and tarea.fecha_limite else '' }}">
         </div>
         <div class="col-md-4">
             <label class="form-label" for="tiempo_estimado">Tiempo estimado (minutos)</label>
-            <input type="number" class="form-control" id="tiempo_estimado" name="tiempo_estimado" min="0" step="1">
+            <input type="number" class="form-control" id="tiempo_estimado" name="tiempo_estimado" min="0" step="1" value="{{ tarea.tiempo_estimado if tarea and tarea.tiempo_estimado is not none else '' }}">
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-3">Agregar tarea</button>
+    <button type="submit" class="btn btn-primary mt-3">{% if tarea %}Guardar cambios{% else %}Agregar tarea{% endif %}</button>
 </form>
 
 <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
