@@ -29,7 +29,7 @@ Rutina.py permite registrar tareas con su categoría, prioridad, fecha límite y
 | Servidor de producción | Gunicorn |
 | Plantillas | Jinja2 (incluido con Flask) |
 | Base de datos | SQLite (módulo `sqlite3` de Python) |
-| Estilos | Bootstrap 5.3.8 y Bootstrap Icons 1.11.3 |
+| Estilos | Bootstrap 5.3.8, Bootstrap Icons 1.11.3 y hoja de estilos propia (`static/estilo.css`) |
 | Interactividad | JavaScript (`fetch`) |
 | Campo de categorías | Tom Select 2.3.1 |
 | Despliegue | Render |
@@ -41,6 +41,7 @@ Rutina.py permite registrar tareas con su categoría, prioridad, fecha límite y
 - `database.py`: conexión a SQLite y creación de la tabla `tareas`.
 - `templates/`: plantillas Jinja2. `layout.html` es la plantilla base.
 - `static/app.js`: lista de tareas e interacciones en el navegador.
+- `static/estilo.css`: estilos propios que complementan Bootstrap.
 - `seed.py`: carga datos de ejemplo.
 
 La documentación de la arquitectura, el mapa de sitio, los algoritmos y el pseudocódigo está en `docs/`.
